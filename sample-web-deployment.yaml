@@ -18,7 +18,7 @@ spec:
       containers:
         - name: laravel-front
           # CHANGE [PROJECT_ID] to the project where your Cloud SQL instance lives
-          image: gcr.io/smiling-destiny-184908/laravel-demo:latest-1
+          image: gcr.io/smiling-destiny-184908/laravel-demo:latest
 # Set env variables used for database connection
           env:
             - name: DB_USER
