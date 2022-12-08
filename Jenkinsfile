@@ -40,6 +40,7 @@ pipeline {
 	 
       stage('Deploy to GKE') {
             steps{
+                input message:"Proceed with final deployment?"
                 sh "sed -i 's/laravel-demo:latest/laravel-demo:$BUILD_NUMBER/' sample-web-deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'sample-web-deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
